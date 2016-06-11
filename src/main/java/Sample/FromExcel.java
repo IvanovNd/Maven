@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Haigus on 03.06.2016.
- */
-
 public class FromExcel {
 
     private List<Person> personArrayList = new ArrayList<>();

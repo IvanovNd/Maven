@@ -1,9 +1,5 @@
 package Sample;
 
-/**
- * Created by Haigus on 05.06.2016.
- */
-
 public class Person {
 
     private int number;
