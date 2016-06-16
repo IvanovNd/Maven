@@ -1,11 +1,13 @@
 package Sample;
 
+import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -94,6 +96,26 @@ public class FromExcel {
             }
         } catch (IOException ie) {
             ie.printStackTrace();
+        }
+    }
+
+    public void adding_to_DB (List<Person> persons) {
+        try {
+            Driver driver = new FabricMySQLDriver();
+            DriverManager.registerDriver(driver);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbtest", "root", "root")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into people (id, name, age)" + "VALUES (?, ?, ?)");
+            for (Person i : persons) {
+                preparedStatement.setInt(1, i.getNumber());
+                preparedStatement.setString(2, i.getName());
+                preparedStatement.setInt(3, i.getAge());
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
         }
     }
 }
