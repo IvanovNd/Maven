@@ -33,14 +33,14 @@ public class Main {
         boys_and_girls.renumber(sexIsNotImportant);
         boys_and_girls.print_personArrayList(sexIsNotImportant);
 
-//        System.out.println();
-//        System.out.println("Записываем содержимое ArrayList в txt.");
-//        boys_and_girls.toTxt("Test.txt");
+        System.out.println();
+        System.out.println("Записываем содержимое ArrayList в txt.");
+        boys_and_girls.toTxt("Test.txt");
 
-//        System.out.println();
-//        System.out.println("Сортируем по возрасту и записываем результат в соответствующие txt.");
-//        boys_and_girls.sortingByAge_lessThan20(sexIsNotImportant);
-//        boys_and_girls.sortingByAge_moreThan20(sexIsNotImportant);
+        System.out.println();
+        System.out.println("Сортируем по возрасту и записываем результат в соответствующие txt.");
+        boys_and_girls.sortingByAge_lessThan20(sexIsNotImportant);
+        boys_and_girls.sortingByAge_moreThan20(sexIsNotImportant);
 
         System.out.println("Заполняем базу данных.");
         boys_and_girls.adding_to_DB(sexIsNotImportant);
